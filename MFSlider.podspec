@@ -18,11 +18,11 @@ s.author = { "Maryam Fekri" => "maryamfekri.00@gmail.com" }
 
 
 # 5 - Replace this URL with your own Github page's URL (from the address bar)
-s.homepage = "https://github.com/maryamfekri/MF"
+s.homepage = "https://github.com/maryamfekri/MFPods"
 
 
 # 6 - Replace this URL with your own Git URL from "Quick Setup"
-s.source = { :git => "https://github.com/maryamfekri/MF.git", :tag => "#{s.version}"}
+s.source = { :git => "https://github.com/maryamfekri/MFPods.git", :tag => "#{s.version}"}
 
 # 7
 s.framework = "UIKit"
