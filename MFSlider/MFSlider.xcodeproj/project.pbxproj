@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		A5AF79011DC8CF5700DE449E /* MFSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = A5AF78FF1DC8CF5700DE449E /* MFSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A5AF79081DC9B0EB00DE449E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF79071DC9B0EB00DE449E /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A5AF78FC1DC8CF5700DE449E /* MFSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MFSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AF78FF1DC8CF5700DE449E /* MFSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFSlider.h; sourceTree = "<group>"; };
 		A5AF79001DC8CF5700DE449E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5AF79071DC9B0EB00DE449E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +50,7 @@
 			children = (
 				A5AF78FF1DC8CF5700DE449E /* MFSlider.h */,
 				A5AF79001DC8CF5700DE449E /* Info.plist */,
+				A5AF79071DC9B0EB00DE449E /* ViewController.swift */,
 			);
 			path = MFSlider;
 			sourceTree = "<group>";
@@ -95,6 +98,7 @@
 				TargetAttributes = {
 					A5AF78FB1DC8CF5700DE449E = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -131,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5AF79081DC9B0EB00DE449E /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,6 +244,7 @@
 		A5AF79051DC8CF5700DE449E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -250,6 +256,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = MF.MFSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -257,6 +264,7 @@
 		A5AF79061DC8CF5700DE449E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -291,6 +299,7 @@
 				A5AF79061DC8CF5700DE449E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
