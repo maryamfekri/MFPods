@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zaK-CX-Ik1">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--Map View Controller-->
+        <scene sceneID="Cjv-7H-5Ht">
+            <objects>
+                <viewController id="zaK-CX-Ik1" customClass="MapViewController" customModule="MFSlider" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3um-6U-QFT"/>
+                        <viewControllerLayoutGuide type="bottom" id="wVz-A0-tUW"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YCU-k8-QcE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gO8-QU-kPy">
+                                <rect key="frame" x="0.0" y="450" width="600" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="3kc-5e-lcw"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="udI-8K-lb9">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ojj-DN-8Lw">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFI-yw-P2d" customClass="GMSMapView">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="VFI-yw-P2d" secondAttribute="trailing" id="H50-fj-q4b"/>
+                            <constraint firstItem="wVz-A0-tUW" firstAttribute="top" secondItem="gO8-QU-kPy" secondAttribute="bottom" id="HeV-fx-IQk"/>
+                            <constraint firstAttribute="trailing" secondItem="gO8-QU-kPy" secondAttribute="trailing" id="Rxd-rC-P7a"/>
+                            <constraint firstItem="wVz-A0-tUW" firstAttribute="top" secondItem="VFI-yw-P2d" secondAttribute="bottom" id="WWl-VS-6wV"/>
+                            <constraint firstItem="gO8-QU-kPy" firstAttribute="leading" secondItem="YCU-k8-QcE" secondAttribute="leading" id="X8X-LJ-xEj"/>
+                            <constraint firstItem="VFI-yw-P2d" firstAttribute="top" secondItem="YCU-k8-QcE" secondAttribute="top" id="bGU-8G-LNQ"/>
+                            <constraint firstItem="VFI-yw-P2d" firstAttribute="leading" secondItem="YCU-k8-QcE" secondAttribute="leading" id="e8E-d2-Tr5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="gO8-QU-kPy" id="P7d-M9-TvJ"/>
+                        <outlet property="mapView" destination="VFI-yw-P2d" id="EE3-Uq-183"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ket-VG-eNv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815" y="406"/>
+        </scene>
+    </scenes>
+</document>

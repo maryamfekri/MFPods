@@ -7,15 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1ECEA8E3F3A49E88D2C1DE0B /* Pods_MFSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 072F0AA19442348286DA2EBF /* Pods_MFSlider.framework */; };
 		A5AF79011DC8CF5700DE449E /* MFSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = A5AF78FF1DC8CF5700DE449E /* MFSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		A5AF79081DC9B0EB00DE449E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF79071DC9B0EB00DE449E /* ViewController.swift */; };
+		A5AF79081DC9B0EB00DE449E /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5AF79071DC9B0EB00DE449E /* MapViewController.swift */; };
+		A5E1A4431DC9FC470045C714 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5E1A4421DC9FC470045C714 /* ListItem.swift */; };
+		A5E1A4451DCA00EA0045C714 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5E1A4441DCA00EA0045C714 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		072F0AA19442348286DA2EBF /* Pods_MFSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MFSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1490B20B2D53E5848154F1EB /* Pods-MFSlider.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFSlider.release.xcconfig"; path = "Pods/Target Support Files/Pods-MFSlider/Pods-MFSlider.release.xcconfig"; sourceTree = "<group>"; };
 		A5AF78FC1DC8CF5700DE449E /* MFSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MFSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5AF78FF1DC8CF5700DE449E /* MFSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MFSlider.h; sourceTree = "<group>"; };
 		A5AF79001DC8CF5700DE449E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A5AF79071DC9B0EB00DE449E /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A5AF79071DC9B0EB00DE449E /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A5E1A4421DC9FC470045C714 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
+		A5E1A4441DCA00EA0045C714 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EF887A2EE6B3A5C06F81CF48 /* Pods-MFSlider.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MFSlider.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MFSlider/Pods-MFSlider.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -23,17 +31,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1ECEA8E3F3A49E88D2C1DE0B /* Pods_MFSlider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D5FEA2AE68102E7C51F5C7E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EF887A2EE6B3A5C06F81CF48 /* Pods-MFSlider.debug.xcconfig */,
+				1490B20B2D53E5848154F1EB /* Pods-MFSlider.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		A5AF78F21DC8CF5700DE449E = {
 			isa = PBXGroup;
 			children = (
 				A5AF78FE1DC8CF5700DE449E /* MFSlider */,
 				A5AF78FD1DC8CF5700DE449E /* Products */,
+				4D5FEA2AE68102E7C51F5C7E /* Pods */,
+				AB73E44E112BB8CCA63CB5DC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -50,9 +70,19 @@
 			children = (
 				A5AF78FF1DC8CF5700DE449E /* MFSlider.h */,
 				A5AF79001DC8CF5700DE449E /* Info.plist */,
-				A5AF79071DC9B0EB00DE449E /* ViewController.swift */,
+				A5AF79071DC9B0EB00DE449E /* MapViewController.swift */,
+				A5E1A4421DC9FC470045C714 /* ListItem.swift */,
+				A5E1A4441DCA00EA0045C714 /* Main.storyboard */,
 			);
 			path = MFSlider;
+			sourceTree = "<group>";
+		};
+		AB73E44E112BB8CCA63CB5DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				072F0AA19442348286DA2EBF /* Pods_MFSlider.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,10 +103,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A5AF79041DC8CF5700DE449E /* Build configuration list for PBXNativeTarget "MFSlider" */;
 			buildPhases = (
+				CEAB330CCE79E9BF0C17C0E6 /* [CP] Check Pods Manifest.lock */,
 				A5AF78F71DC8CF5700DE449E /* Sources */,
 				A5AF78F81DC8CF5700DE449E /* Frameworks */,
 				A5AF78F91DC8CF5700DE449E /* Headers */,
 				A5AF78FA1DC8CF5700DE449E /* Resources */,
+				9FB3B079D08F30CED82E5878 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -98,6 +130,7 @@
 				TargetAttributes = {
 					A5AF78FB1DC8CF5700DE449E = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 2W4U2P3K99;
 						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
@@ -125,17 +158,52 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E1A4451DCA00EA0045C714 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9FB3B079D08F30CED82E5878 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MFSlider/Pods-MFSlider-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CEAB330CCE79E9BF0C17C0E6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A5AF78F71DC8CF5700DE449E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5AF79081DC9B0EB00DE449E /* ViewController.swift in Sources */,
+				A5E1A4431DC9FC470045C714 /* ListItem.swift in Sources */,
+				A5AF79081DC9B0EB00DE449E /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,40 +311,46 @@
 		};
 		A5AF79051DC8CF5700DE449E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EF887A2EE6B3A5C06F81CF48 /* Pods-MFSlider.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MFSlider/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MF.MFSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		A5AF79061DC8CF5700DE449E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1490B20B2D53E5848154F1EB /* Pods-MFSlider.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = MFSlider/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MF.MFSlider;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
