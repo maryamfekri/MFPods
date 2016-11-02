@@ -30,6 +30,7 @@ s.framework = "UIKit"
 # 8
 s.source_files = "MFSlider/**/*.{swift}"
 
+
 # 9
 s.resources = "MFSlider/**/*.{png,jpeg,jpg,storyboard,xib}"
 end
