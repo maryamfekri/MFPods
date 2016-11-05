@@ -8,12 +8,10 @@
 
 import UIKit
 import CoreLocation
-import GoogleMaps
 
 
-class MapViewController: UIViewController, GMSMapViewDelegate {
+class MapViewController: UIViewController {
     
-    @IBOutlet weak var mapView: GMSMapView!
     @IBOutlet weak var collectionView: UICollectionView!
     
     var menuButton: UIBarButtonItem!
@@ -29,9 +27,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
     var storeList = [ListItem]()
     
     var isBusy = false
-    var markers = [GMSMarker]()
-    var selctedMarkar = GMSMarker()
-    var originMarker : GMSMarker?
     
     var selectedMarkerIndex = 0
     
@@ -48,9 +43,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         listItem.uid = "2"
         listItem.addressRelationship = CLLocation(latitude: 113.343, longitude: 124.234)
         self.storeList.append(listItem)
-        
-        self.mapView.delegate = self
-        self.mapView.tintColor = UIColor.blackColor()
+
         
         self.locationManager.delegate = self
         self.collectionView.delegate = self
@@ -79,15 +72,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         didMoveToParentViewController(navigationController)
     }
     
-    override func didMoveToParentViewController(parent: UIViewController?) {
-        if parent == nil {
-            //"Back pressed"
-            self.mapView.clear()
-            self.mapView.removeFromSuperview()
-            self.mapView = nil
-        }
-    }
-    
     @IBAction func backButton(sender: AnyObject) {
         navigationController?.popViewControllerAnimated(true)
     }
@@ -97,94 +81,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         self.isBusy = true
         
         self.storeList = list
-        self.addMarkers()
         self.updateStoreLists()
         self.isBusy = false
         if let address = self.storeList.first?.addressRelationship?.coordinate {
             let location = CLLocation(latitude: address.latitude, longitude: address.longitude)
-            if self.userLocation == nil {
-                self.mapView.animateWithCameraUpdate(GMSCameraUpdate.setTarget(location.coordinate))
-            } else {
-                let bounds = GMSCoordinateBounds(coordinate: self.userLocation!.coordinate, coordinate: location.coordinate)
-                
-                self.mapView.animateWithCameraUpdate(GMSCameraUpdate.fitBounds(bounds, withPadding: 100.0))
-            }
         }
         
     }
     
-
-    
-    @IBAction func unwindToStoreLocator(segue: UIStoryboardSegue) {}
-    
-    // add markers to map
-    func addMarkers(){
-        
-        self.markers.removeAll()
-        for store in self.storeList {
-            if let lat = store.addressRelationship?.coordinate.latitude , lng = store.addressRelationship?.coordinate.longitude {
-                let marker = GMSMarker()
-                marker.position = CLLocationCoordinate2DMake(lat,lng)
-                marker.appearAnimation = kGMSMarkerAnimationPop
-                
-                marker.icon = pinUIImage
-                self.markers.append(marker)
-                
-                marker.map = self.mapView
-            }
-        }
-        if self.markers.count > 0 {
-            self.markers[0].icon = pinActiveUIImage
-            //            let cell = storeCollectionView.cellForItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0)) as? StoreLocatorCollectionViewCell
-            //            cell?.pinImageView.image = pinActiveUIImage
-            
-            self.selectedMarkerIndex = 0
-        }
-        
-    }
     
     func updateStoreLists() {
         self.collectionView.reloadData()
     }
     
     var lockScroll = false
-    func mapView(mapView: GMSMapView, didTapMarker marker: GMSMarker) -> Bool {
-        if let index = self.markers.indexOf(marker) {
-            //            if isCheckout && basket?.suggestStores == true {
-            //                if !breakfastStores.contains(self.storeList[index]) {
-            //                    return false
-            //                }
-            //            }
-            var newContentOffset = CGFloat()
-            lockScroll = true
-            if index == 0 || index == self.markers.count-1{
-                newContentOffset = (CGFloat(index) * (self.collectionView.frame.width/1.2))+CGFloat(index * 10)
-            } else {
-                newContentOffset = (CGFloat(index) * (self.collectionView.frame.width/1.2))+CGFloat((index-1) * 10)
-            }
-            
-            UIView.animateWithDuration(0.2, animations: {
-                self.collectionView.contentOffset.x = newContentOffset
-                
-                }, completion: { _ in
-                    //deactive pins
-                    var cell = self.collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: self.selectedMarkerIndex, inSection: 0)) as? StoreLocatorCollectionViewCell
-                    cell?.pinImageView.image = self.pinUIImage
-                    self.markers[self.selectedMarkerIndex].icon = self.pinUIImage
-                    
-                    //active pins
-                    self.markers[index].icon = self.pinActiveUIImage
-                    cell = self.collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0)) as? StoreLocatorCollectionViewCell
-                    cell?.pinImageView.image = self.pinActiveUIImage
-                    
-                    self.selectedMarkerIndex = index
-                    self.lockScroll = false
-                    
-            })
-            
-        }
-        return true
-    }
+
     
 }
 
@@ -202,24 +113,6 @@ extension MapViewController: CLLocationManagerDelegate {
         }
     }
     
-    func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        self.locationManager.stopUpdatingLocation()
-        if let latestLocation = locations.last {
-            self.userLocation = latestLocation
-            
-            if !userLocationMarkerAdded {
-                userLocationMarkerAdded = true
-                self.mapView?.camera = GMSCameraPosition.cameraWithTarget(latestLocation.coordinate, zoom: 9.0)
-                originMarker = GMSMarker(position: latestLocation.coordinate)
-                self.originMarker?.map = self.mapView
-                self.originMarker?.appearAnimation = kGMSMarkerAnimationPop
-                self.originMarker?.icon = UIImage(named: "MyLocation")
-            }
-            if !isBusy {
-                self.requestToGetStores(self.storeList)
-            }
-        }
-    }
     
     func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
         if !self.isBusy {
@@ -260,23 +153,18 @@ extension MapViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         if !lockScroll {
             let cellWidth = self.collectionView.frame.width/1.2
             let index = Int((self.collectionView.contentOffset.x+(cellWidth/2)) / (cellWidth + 10))
-            if index < self.markers.count {
-                if index != self.selectedMarkerIndex {
-                    let store : ListItem?
-                    store = self.storeList[index]
+            if index != self.selectedMarkerIndex {
+                let store : ListItem?
+                store = self.storeList[index]
+                
+                if let address = store?.addressRelationship?.coordinate {
+                    let adddressCLLocation = CLLocation(latitude: address.latitude, longitude: address.longitude)
+                    var cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0)) as? StoreLocatorCollectionViewCell
+                    cell?.pinImageView.image = pinActiveUIImage
+                    cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: selectedMarkerIndex, inSection: 0)) as? StoreLocatorCollectionViewCell
+                    cell?.pinImageView.image = pinUIImage
+                    self.selectedMarkerIndex = index
                     
-                    if let address = store?.addressRelationship?.coordinate {
-                        let adddressCLLocation = CLLocation(latitude: address.latitude, longitude: address.longitude)
-                        self.mapView.animateWithCameraUpdate(GMSCameraUpdate.setTarget(adddressCLLocation.coordinate))
-                        self.markers[selectedMarkerIndex].icon = pinUIImage
-                        self.markers[index].icon = pinActiveUIImage
-                        var cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: index, inSection: 0)) as? StoreLocatorCollectionViewCell
-                        cell?.pinImageView.image = pinActiveUIImage
-                        cell = collectionView.cellForItemAtIndexPath(NSIndexPath(forItem: selectedMarkerIndex, inSection: 0)) as? StoreLocatorCollectionViewCell
-                        cell?.pinImageView.image = pinUIImage
-                        self.selectedMarkerIndex = index
-                        
-                    }
                 }
             }
         }
